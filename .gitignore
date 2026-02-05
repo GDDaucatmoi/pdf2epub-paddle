@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Mac OS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+
+# Project Specific
+paddle_epub_work/
+*.pdf.json
+*.epub
+output/
+*.pdf
+
+# Only ignore logs/data, but maybe keep sample if intended?
+# User wanted to clean up data.

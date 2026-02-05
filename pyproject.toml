@@ -1,0 +1,14 @@
+[project]
+name = "pdf2epub-paddle"
+version = "0.1.0"
+description = "Scanned PDF to Epub Converter"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "pymupdf>=1.23.0",
+    "EbookLib>=0.17.1",
+]
+
+[tool.uv]
+dev-dependencies = []
