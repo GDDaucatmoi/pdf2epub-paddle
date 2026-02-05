@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 import base64
 import json
@@ -91,26 +92,44 @@ def parse_pdf_chunk(chunk_path: str, token: str) -> Dict[str, Any]:
         "useChartRecognition": False,  # Basic extraction
     }
 
-    max_retries = 3
+    max_retries = 5
     for attempt in range(max_retries):
         try:
             response = requests.post(
                 API_URL, json=payload, headers=headers, timeout=180
             )
             response.raise_for_status()
-            json_resp = response.json()
+            result = response.json()
 
-            return json_resp
-        except requests.exceptions.RequestException as e:
+            # Check for API errors in the response
+            if "error" in result["responses"][0]:
+                print(
+                    f"[!] API Error for chunk {os.path.basename(chunk_path)}: {result['responses'][0]['error']}"
+                )
+                return None
+
+            return process_layout_results(result, chunk_path)
+
+        except (requests.exceptions.RequestException, ConnectionError) as e:
+            wait_time = (
+                2**attempt
+            ) * 5  # Exponential backoff: 5, 10, 20, 40, 80 seconds
             print(f"[!] API Request failed (attempt {attempt + 1}/{max_retries}): {e}")
-            if "response" in locals() and response:
-                try:
-                    print(f"    Response: {response.text[:200]}...")  # Truncate log
-                except:
-                    pass
+            if attempt < max_retries - 1:
+                print(f"    Retrying in {wait_time}s...")
+                import time
 
-    print("[!] Failed after all retries.")
-    return None
+                time.sleep(wait_time)
+            else:
+                print(
+                    f"[!] Permanently failed processing chunk: {os.path.basename(chunk_path)}"
+                )
+                return None
+        except Exception as e:
+            print(
+                f"[!] Unexpected error processing chunk {os.path.basename(chunk_path)}: {e}"
+            )
+            return None
 
 
 def download_image(url: str, save_path: str):
@@ -431,7 +450,13 @@ def main():
                         ):  # Don't re-download if exists
                             download_image(img_url, local_path)
             else:
-                print(f"[!] Warning: Failed to process chunk {i + 1}")
+                print(
+                    f"[!] CRITICAL: Failed to process chunk {i + 1}. Aborting to prevent incomplete book."
+                )
+                print(
+                    "    Please resolve connectivity issues and re-run the script to resume."
+                )
+                sys.exit(1)
 
         # Step 3: Generation
         print("[-] Step 3: Generating EPUB...")
